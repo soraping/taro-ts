@@ -20,7 +20,7 @@ export default function updateUserInfo(
     case USER.MINIAPP_SETTING:
       return {
         ...state,
-        miniAppAuthStatus: action.data["scope.userInfo"]
+        miniAppAuthStatus: !!action.data["scope.userInfo"]
       };
     case USER.MINIAPP_AUTH_USER_INFO:
       return {

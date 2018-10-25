@@ -65,6 +65,7 @@ class Index extends Component {
         <Text>nickname: {user.nickName}</Text>
         <Image src={user.avatarUrl || ""} />
         <Button
+          className={user.miniAppAuthStatus ? "hide" : ""}
           type="primary"
           openType="getUserInfo"
           onGetUserInfo={this._onGotUserInfo}
