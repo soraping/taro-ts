@@ -1,0 +1,84 @@
+@import "theme";
+@import "icon";
+@import "base";
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.hide {
+  display: none;
+}
+//宽高尺寸设置
+.size(@width, @height) {
+  width: @width;
+  height: @height;
+}
+// 设置圆
+.circle(@size) {
+  width: @size;
+  height: @size;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+// 按钮阴影
+.button-shadow {
+  box-shadow: 0 5px 5px #ddd;
+}
+
+// 按钮置灰
+.button-disable {
+  background-color: @color-border !important;
+  color: @color-white !important;
+}
+
+.bg-white {
+  width: 94%;
+  margin: 0 auto;
+}
+
+.font-gray {
+  color: @color-gray !important;
+}
+
+// 卡片背景
+.card-bg-class {
+  width: 92%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: @color-white;
+  border: 1px solid @color-white;
+  border-radius: 0.6em;
+  box-shadow: 0 2px 32px #f5ecd7;
+}
+
+// 圆形头像
+.profile-fhoto {
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  .profile-fhoto-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.base-color {
+  color: @color-primary !important;
+}
+
+// 横向图片展示
+.cat-picture-show {
+  border-radius: 5px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
