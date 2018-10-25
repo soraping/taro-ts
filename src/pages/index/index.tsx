@@ -1,7 +1,7 @@
 import { ComponentClass } from "react";
 import { bindActionCreators } from "redux";
 import Taro, { Component, Config } from "@tarojs/taro";
-import { View, Text, Image } from "@tarojs/components";
+import { View, Text, Image, Button } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
 import MyComponent from "../components/demo";
 import { IUser, TActionDispatchProps, IMiniAppSetting } from "../../interface";
@@ -64,9 +64,28 @@ class Index extends Component {
         <MyComponent />
         <Text>nickname: {user.nickName}</Text>
         <Image src={user.avatarUrl || ""} />
+        <Button
+          type="primary"
+          openType="getUserInfo"
+          onGetUserInfo={this._onGotUserInfo}
+        >
+          确认
+        </Button>
       </View>
     );
   }
+
+  _onGotUserInfo = e => {
+    if (
+      e.type == "getuserinfo" &&
+      e.detail &&
+      e.detail.errMsg == "getUserInfo:ok"
+    ) {
+      console.log("获取用户授权信息 => ", e.detail.userInfo);
+    } else {
+      console.warn("用户主动取消了授权");
+    }
+  };
 }
 
 export default Index as ComponentClass<PageOwnProps, PageState>;
