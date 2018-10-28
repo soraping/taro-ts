@@ -19,11 +19,11 @@ export interface IAction<T> {
   err?: any;
 }
 
-interface IActionProps<T> {
-  (): Promise<T>;
+interface IActionProps<T, P> {
+  (params?: P): Promise<T>;
 }
 
-export type TActionDispatchProps<T> = IActionProps<T> | TApiAction<T>;
+export type TActionDispatchProps<T, P> = IActionProps<T, P>;
 
 export type TDispatch<T> = Dispatch<IAction<T>>;
 

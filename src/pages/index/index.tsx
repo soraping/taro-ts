@@ -14,8 +14,8 @@ type PageStateProps = {
 };
 
 type PageDispatchProps = {
-  getUserMiniAppSetting: TActionDispatchProps<IMiniAppSetting>;
-  getMiniappAuth: TActionDispatchProps<IUser>;
+  getUserMiniAppSetting: TActionDispatchProps<IMiniAppSetting, any>;
+  getMiniappAuth: TActionDispatchProps<IUser, any>;
 };
 
 type PageOwnProps = {};
@@ -42,7 +42,7 @@ const mapDispatchToProps = dispatch => {
 
 @connect<PageStateProps, PageDispatchProps, PageOwnProps>(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps as any
 )
 class Index extends Component {
   config: Config = {
