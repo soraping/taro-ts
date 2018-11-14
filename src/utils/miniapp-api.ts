@@ -3,7 +3,8 @@ import {
   IMiniAppSetting,
   IMiniLogin,
   IUser,
-  IUploadOptions
+  IUploadOptions,
+  IPayMent
 } from "../interface";
 import { BASE_URL, UPLOAD_IMG } from "../constants/api";
 import { userLogin } from "./api";
@@ -62,6 +63,21 @@ export const uploadImg = (params: IUploadOptions) => {
         name: "file",
         ...params
       });
+      resolve(res);
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
+/**
+ * 小程序支付
+ * @param params
+ */
+export const maPay = (params: IPayMent) => {
+  return new Promise<any>(async (resolve, reject) => {
+    try {
+      let res = await Taro.requestPayment(params);
       resolve(res);
     } catch (e) {
       reject(e);

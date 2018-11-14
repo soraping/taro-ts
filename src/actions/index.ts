@@ -21,11 +21,11 @@ export function createApiAction<T>(
         data
       });
       // 可以执行成功后的方法
-      callback && callback.success && callback.success(data);
+      // callback && callback.success && callback.success(data);
       return data;
     } catch (e) {
-      console.error(e);
-      callback && callback.failed && callback.failed(e);
+      // callback && callback.failed && callback.failed(e);
+      return Promise.reject(e);
     }
   };
 }

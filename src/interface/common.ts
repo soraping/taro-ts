@@ -32,3 +32,11 @@ export interface IUploadOptions {
   name?: string;
   formData?: object;
 }
+
+export interface IPayMent {
+  timeStamp: string;
+  nonceStr: string;
+  package: string;
+  signType: string;
+  paySign: string;
+}

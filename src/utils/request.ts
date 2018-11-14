@@ -39,11 +39,11 @@ export class Http implements IHttp {
             return resolve(res.data);
           default:
             console.log(res.data);
-            reject(new Error(res.message));
+            reject(res.message);
         }
       } catch (error) {
         Taro.hideNavigationBarLoading();
-        reject(new Error("网络请求出错"));
+        reject("网络请求出错");
       }
     });
   }
