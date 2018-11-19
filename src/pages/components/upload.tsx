@@ -9,7 +9,7 @@ type TSourceType = "album" | "camera";
  */
 export default class UploadImg extends Component {
   props: {
-    cb: (url: string) => void;
+    onCb: (url: string) => void;
   };
 
   render() {
@@ -54,7 +54,7 @@ export default class UploadImg extends Component {
       let res = await uploadImg({
         filePath: item
       });
-      this.props.cb(res);
+      this.props.onCb(res);
     });
     Taro.hideToast();
   };
